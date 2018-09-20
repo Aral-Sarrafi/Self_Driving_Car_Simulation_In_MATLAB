@@ -1,4 +1,4 @@
-# Self_Driving_Car_Simulation_In_MATLAB
+# Self Driving Car Simulation In MATLAB
 This repository includes the simulation of self-driving car. The dynamics of the car is implemented and a PID controller drives the car towards the specified Goal while avoiding the obstacle in the map.
 The dynamics of the car and the controller are all implanted in Car.m file using object-oriented programming in MATLAB. The main function runs the car model and plots the results to generate the GIF file for this simulation.
 

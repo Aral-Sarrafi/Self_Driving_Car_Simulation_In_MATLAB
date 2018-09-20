@@ -4,3 +4,4 @@ The dynamics of the car and the controller are all implanted in Car.m file using
 
 <img src = "car-heading-1.5708.gif" align="center" >
 <img src = "car-heading0.gif" align="center" >
+<img src = "Larger_obstacle.gif" align="center" >

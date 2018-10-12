@@ -25,7 +25,6 @@ classdef Car<handle
 
     end
     
-    
     methods
         %% Constructor
         
@@ -197,9 +196,9 @@ hold off
         end
         
         function PID_Controller(obj,cte)
-           kp = 0.006;
-           kd = 0.04;
-           ki = 0.0001;
+           kp = 0.02;
+           kd = 0.25;
+           ki = 0.00005;
            
            dcte = cte - obj.old_cte;
            obj.cte_intergral = obj.cte_intergral + cte;
@@ -216,7 +215,7 @@ hold off
     end 
 end
 
-%%    
+%% Helper Functions
 function R=wheel_frame_to_car(pc,si)
             R=[cos(si) -sin(si) pc(1);sin(si) cos(si) pc(2);0 0 1];
 end

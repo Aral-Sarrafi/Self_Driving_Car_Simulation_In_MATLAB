@@ -1,13 +1,13 @@
 close all
 clc
 %% Creat your object
-initial_states=[0 -250 0 0];
-initial_inputs=[pi/25 12];
+initial_states=[0 -225 0 0];
+initial_inputs=[0 12];
 
 Lambo=Car(initial_states,initial_inputs);
 
 N = 200;
-
+win = 100;
 way_points = generate_trajectory(0.05);
 
 myTrajectory = Trajectory(way_points);
@@ -20,13 +20,27 @@ for i = 1: N
     myTrajectory.compute_error;
     myTrajectory.show(Lambo);
     
-    myTrajectory.cte
+    myTrajectory.cte;
+    
 
     Lambo.show;
     Lambo.PID_Controller(myTrajectory.cte);
-    Lambo.control_inputs(1)
-    xlim([-300 300])
-    ylim([-300 300])
+    Lambo.control_inputs(1);
+    xlim([-225 225])
+    ylim([-225 225])
     Lambo.update_state;
+    
+    
+%     figure(2);
+%     
+%     myTrajectory.show(Lambo);
+%     
+%     [x,y,~,~] = Lambo.state_unpack;
+%     
+%     Lambo.show;
+% 
+%     xlim([x - win x + win])
+%     ylim([y - win y + win])
+
    
 end

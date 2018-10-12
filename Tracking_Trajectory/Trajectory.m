@@ -49,15 +49,15 @@ classdef Trajectory<handle
                 
                 W_points = Car_to_W_Coordinate_system(C_Points,Car);
                 
-                plot(W_points(:,1), W_points(:,2),'r.-',"Linewidth",2);
+                plot(W_points(:,1), W_points(:,2),'r-.',"Linewidth",2);
                 hold on
                 
                 
             end
             
         end
-        %% Transform the point to car coordinate system
         
+        %% Transform the point to car coordinate system
         function W_to_Car_Coordinate_system(obj,Car)
             
             [x,y,phi,~] = Car.state_unpack;
@@ -69,7 +69,6 @@ classdef Trajectory<handle
         end
     
         %% This function finds the nearest points to the car
-        
         function nearest_points(obj,Car)
             
             [x,y,~,~] = Car.state_unpack;
@@ -111,7 +110,6 @@ classdef Trajectory<handle
         end
         
     end
-    
 end
 
 %% Transfomr the point to car coordinate system

@@ -5,7 +5,7 @@ function waypoints = generate_trajectory(resolution)
     theta = 0:resolution:2*pi;
     
     a = 200;
-    b = 200;
+    b = 150;
     
     waypoints(:,1) = a * cos(theta);
     waypoints(:,2) = b * sin(theta);

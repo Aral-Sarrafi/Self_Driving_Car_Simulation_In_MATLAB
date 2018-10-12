@@ -1,7 +1,7 @@
 close all
 clc
 %% Creat your object
-initial_states=[0 -400 0 0];
+initial_states=[0 -250 0 0];
 initial_inputs=[pi/25 12];
 
 Lambo=Car(initial_states,initial_inputs);
@@ -21,12 +21,34 @@ for i = 1: N
     myTrajectory.show(Lambo);
     
     myTrajectory.cte
+    
 
     Lambo.show;
     Lambo.PID_Controller(myTrajectory.cte);
     Lambo.control_inputs(1)
-    xlim([-300 300])
-    ylim([-300 300])
+    xlim([-255 255])
+    ylim([-255 255])
+    Lambo.update_state;
+    
+    
+    figure(2);
+    
+    myTrajectory.nearest_points(Lambo);
+    myTrajectory.poly_fit(Lambo);
+    myTrajectory.compute_error;
+    myTrajectory.show(Lambo);
+    
+    myTrajectory.cte
+    
+    [x,y,~,~] = Lambo.update_
+    PlotAxisAtOrigin(x,y)
+
+
+    Lambo.show;
+    Lambo.PID_Controller(myTrajectory.cte);
+    Lambo.control_inputs(1)
+    xlim([-255 255])
+    ylim([-255 255])
     Lambo.update_state;
    
 end

@@ -18,6 +18,10 @@ classdef Car<handle
         % Model limits
         steering_angle_limit = deg2rad(33.75);
         max_velocity = 98.3488; % m/s
+        
+        % PID Errors
+        old_cte;
+        cte_intergral;
 
     end
     
@@ -50,6 +54,8 @@ classdef Car<handle
            end
            
            obj.control_inputs=control_inputs;
+           obj.old_cte = 0;
+           obj.cte_intergral = 0;
            
         end
  
@@ -188,6 +194,23 @@ hold off
            end
            
            obj.control_inputs=control_inputs;
+        end
+        
+        function PID_Controller(obj,cte)
+           kp = 0.006;
+           kd = 0.04;
+           ki = 0.0001;
+           
+           dcte = cte - obj.old_cte;
+           obj.cte_intergral = obj.cte_intergral + cte;
+           obj.old_cte = cte; 
+           
+           steering = kp * cte + kd * dcte + ki * obj.cte_intergral;
+           [~,a] = obj.control_inputs_unpack;
+           control_signal = [steering,a];
+           
+           obj.update_input(control_signal);
+            
         end
        
     end 

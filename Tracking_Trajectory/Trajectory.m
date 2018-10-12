@@ -5,6 +5,8 @@ classdef Trajectory<handle
         WP_World_Coordinate;
         nump = 8;
         Nearst_Points;
+        Nearst_Points_C;
+        cte;
         show_nearest = true;
         show_fit = true;
         Coeff_fit;
@@ -17,12 +19,14 @@ classdef Trajectory<handle
             
             obj.WP_World_Coordinate = way_points;
             obj.Nearst_Points = zeros(obj.nump,2);
+            obj.Nearst_Points_C = zeros(obj.nump,2);
+            obj.cte = 0;
             obj.Coeff_fit = [0 0 0];
             
         end
         
         %% Show waypoints
-        function show(obj)
+        function show(obj,Car)
             
             plot(obj.WP_World_Coordinate(:,1), obj.WP_World_Coordinate(:,2))
             hold on
@@ -36,31 +40,34 @@ classdef Trajectory<handle
             
             if (obj.show_fit)
                 
-                xmin = min(obj.Nearst_Points(1,:))-20;
-                xmax = max(obj.Nearst_Points(1,:))+20;
+                xmin = min(obj.Nearst_Points_C(1,:))-100;
+                xmax = max(obj.Nearst_Points_C(1,:))+100;
                 
                 x = xmin:0.1:xmax;
                 y =polyval(obj.Coeff_fit,x);
-                plot(x, y)
+                C_Points = [x' y'];
+                
+                W_points = Car_to_W_Coordinate_system(C_Points,Car);
+                
+                plot(W_points(:,1), W_points(:,2),'r.-',"Linewidth",2);
                 hold on
+                
                 
             end
             
         end
-        %% Transfomr the point to car coordinate system
+        %% Transform the point to car coordinate system
         
-        function points_Car_coordinate = W_to_Car_Coordinate_system(obj,Car)
+        function W_to_Car_Coordinate_system(obj,Car)
             
             [x,y,phi,~] = Car.state_unpack;
             
             tranlate = obj.Nearst_Points - [x,y]; % Setting the car at the origin
             
-            points_Car_coordinate = [cos(phi) -sin(phi);sin(phi) cos(phi)] * tranlate';
-            
-            points_Car_coordinate = points_Car_coordinate';
+            obj.Nearst_Points_C = ([cos(phi) sin(phi); -sin(phi) cos(phi)] * tranlate')';
              
         end
-        
+    
         %% This function finds the nearest points to the car
         
         function nearest_points(obj,Car)
@@ -88,22 +95,33 @@ classdef Trajectory<handle
         end
         
         %% This function fits a polynomial to the nearest points
-        function poly_fit(obj)
+        function poly_fit(obj,Car)
             
-            obj.Coeff_fit = polyfit(obj.Nearst_Points(:,1),obj.Nearst_Points(:,2),3);
+            obj.W_to_Car_Coordinate_system(Car);
+            
+            obj.Coeff_fit = polyfit(obj.Nearst_Points_C(:,1),obj.Nearst_Points_C(:,2),3);
             
         end
         
         %% This function computes the track error which will used later by the PID controller
-        function cte = compute_error(obj,Car, coeff)
+        function compute_error(obj)
             
-            cte = 0;
+            obj.cte = obj.Coeff_fit(end);
             
         end
         
     end
     
-    
-    
-    
+end
+
+%% Transfomr the point to car coordinate system
+        
+ function W_points = Car_to_W_Coordinate_system(C_Points,Car)
+            
+    [x,y,phi,~] = Car.state_unpack;
+            
+    Rotate = ([cos(phi) -sin(phi); sin(phi) cos(phi)] * C_Points')'; % Setting the car at the origin
+           
+    W_points = Rotate + [x,y];
+  
 end

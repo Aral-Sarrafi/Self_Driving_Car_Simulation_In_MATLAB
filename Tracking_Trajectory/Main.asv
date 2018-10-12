@@ -1,7 +1,7 @@
 close all
 clc
 %% Creat your object
-initial_states=[0 -250 0 0];
+initial_states=[0 -400 0 0];
 initial_inputs=[pi/25 12];
 
 Lambo=Car(initial_states,initial_inputs);

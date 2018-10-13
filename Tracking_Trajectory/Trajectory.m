@@ -28,9 +28,9 @@ classdef Trajectory<handle
         %% Show waypoints
         function show(obj,Car)
             
-            plot(obj.WP_World_Coordinate(:,1), obj.WP_World_Coordinate(:,2))
+            plot(obj.WP_World_Coordinate(:,1), obj.WP_World_Coordinate(:,2),"Linewidth",1.5)
             hold on
-            plot(obj.WP_World_Coordinate(:,1), obj.WP_World_Coordinate(:,2),'sq')
+            plot(obj.WP_World_Coordinate(:,1), obj.WP_World_Coordinate(:,2),'.','Color',[0.8500, 0.3250, 0.0980],"MarkerSize",8)
             hold on
             
             if (obj.show_nearest)

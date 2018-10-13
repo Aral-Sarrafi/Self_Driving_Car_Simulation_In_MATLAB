@@ -16,9 +16,6 @@ simulation_time=5;
 
 phi_d=pi;
 figure(1);
-figure(2);
-
-
 
 input=[1;1];
 X=[];

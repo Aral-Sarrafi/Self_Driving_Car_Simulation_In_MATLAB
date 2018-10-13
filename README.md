@@ -1,7 +1,7 @@
 # Self-Driving Car Simulation In MATLAB
 This repository contains a series of self-driving car simulations in MATLAB. The code associated with each of simulations are categorized in different folders. The code is standalone and should run on any MATLAB version without requiring additional dependencies. The simulations are listed below:
 # 1. Tracking a Trajectory
-<img src = "Tracking_Trajectory/Tracking.gif" align="center" >
+<img src = "Tracking_Trajectory/Tracking.gif" align="center" width = "400" hight = "400"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "400" hight = "400">
 
 
 # 2. A Hybrid Automaton Design

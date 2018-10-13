@@ -1,5 +1,10 @@
 # Self-Driving Car Simulation In MATLAB
-This repository contains a series of self-driving car simulations in MATLAB. The code associated with each of simulations are categorized in different folders. The code is standalone and should run on any MATLAB version without requiring additional dependencies. The simulations are listed below:
+This repository contains a series of self-driving car simulations in MATLAB. The simulations are mainly focused on Controlls, Sensor Fusion, State Estimation and Localization in the context of Self_Driving Cars.
+
+**NOTE: Run the Main.m file in each of the the folders for the simulation to start.**
+
+The code associated with each of simulations are categorized in different folders. The code is standalone and should run on any MATLAB version without requiring additional dependencies. The simulations are listed below:
+
 # 1. PID Controller Design for Tracking
 <img src = "Tracking_Trajectory/Tracking.gif" align="center" width = "420" hight = "420"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "420" hight = "420">
 

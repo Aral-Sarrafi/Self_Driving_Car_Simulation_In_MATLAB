@@ -24,7 +24,7 @@ way_points = generate_trajectory(0.05);
 myTrajectory = Trajectory(way_points);
 
 delay_time = 0;
-filename = 'Tracking.gif';
+filename = 'Zoomed.gif';
 
 for i = 1: N
     h = figure(1);
@@ -41,12 +41,12 @@ for i = 1: N
     Lambo.PID_Controller(myTrajectory.cte);
     Lambo.control_inputs(1);
     %% uncomment to zoom in
-%     [x,y,~,~] = Lambo.state_unpack;
-% 
-%     xlim([x - win x + win])
-%     ylim([y - win y + win])
-    xlim([-225 225])
-    ylim([-225 225])
+    [x,y,~,~] = Lambo.state_unpack;
+
+    xlim([x - win x + win])
+    ylim([y - win y + win])
+%     xlim([-225 225])
+%     ylim([-225 225])
     Lambo.update_state;
     grid on;
     

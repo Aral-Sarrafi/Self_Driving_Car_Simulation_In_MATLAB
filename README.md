@@ -14,5 +14,3 @@ The dynamics of the car is implemented and a PID controller drives the car towar
 The dynamics of the car and the controller are all implanted in Car.m file using object-oriented programming in MATLAB. The main function runs the car model and plots the results to generate the GIF file for this simulation.
 
 <img src = "Path Planning/car-heading-1.5708.gif" align="center" width = "420" hight = "420"> <img src = "Path Planning/car-heading0.gif" align="center" width = "420" hight = "420">
-
-<img src = "Path Planning/Larger_obstacle.gif" align="center" >

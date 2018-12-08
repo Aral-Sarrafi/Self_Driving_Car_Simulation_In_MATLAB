@@ -9,7 +9,10 @@ The code associated with each of simulations are categorized in different folder
 This project uses the principlas of computer vision and control to simulate a lane keeping assist system for self driving cars in simulink.
 The computer vision toolbox in simulink is used to detect the lane lines, and a PID controller is utulized to drive the vehicle in between the lane lines.
 
-<img src = "Tracking_Trajectory/Tracking.gif" align="center" width = "420" hight = "420"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "420" hight = "420">
+<img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "420" hight = "420">
+
+<img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> <img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> 
+
 
 # 2. PID Controller Design for Tracking
 <img src = "Tracking_Trajectory/Tracking.gif" align="center" width = "420" hight = "420"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "420" hight = "420">

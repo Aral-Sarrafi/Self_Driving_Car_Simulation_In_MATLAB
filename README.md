@@ -9,7 +9,7 @@ The code associated with each of simulations are categorized in different folder
 This project uses the principlas of **computer vision** and control to simulate a lane keeping assist system for self driving cars in simulink.
 The **computer vision toolbox** in simulink is used to detect the lane lines, and a **PID controller** is utulized to drive the vehicle in between the lane lines.
 
-<img src = "Lane_Keeping_Assist/LKAS.giff" align="center" width = "600" hight = "600">
+<img src = "Lane_Keeping_Assist/LKAS.gif" align="center" width = "800" hight = "600">
 
 First, the sequence of images captured by the camera are converted to the HSV color space. A threshold is applied to the S-channel in the HSV color space to isolate the lane lines. The binary image is transformed using a projective transformation to obtain a bird's eye view of the scene. Finally, the bird's eye view is processed using a 2D point cloud analyzer in a Simulink User-defined function to detect the left and right lanes.
 

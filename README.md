@@ -5,11 +5,15 @@ This repository contains a series of self-driving car simulations in MATLAB. The
 
 The code associated with each of simulations are categorized in different folders. The code is standalone and should run on any MATLAB version without requiring additional dependencies. The simulations are listed below:
 
-# 1. PID Controller Design for Tracking
+# 1. Lane Keeping Assist System Simulation for an autonomous vehicle in MATLAB/SIMULINK
+This project uses the principlas of computer vision and control to simulate a lane keeping assist system for self driving cars in simulink.
+The computer vision toolbox in simulink is used to detect the lane lines, and a PID controller is utulized to drive the vehicle in between the lane lines.
+
+# 2. PID Controller Design for Tracking
 <img src = "Tracking_Trajectory/Tracking.gif" align="center" width = "420" hight = "420"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "420" hight = "420">
 
 
-# 2. A Hybrid Automaton Design
+# 3. A Hybrid Automaton Design
 The dynamics of the car is implemented and a PID controller drives the car towards the specified Goal while avoiding the obstacle in the map.
 The dynamics of the car and the controller are all implanted in Car.m file using object-oriented programming in MATLAB. The main function runs the car model and plots the results to generate the GIF file for this simulation.
 

@@ -11,7 +11,7 @@ The computer vision toolbox in simulink is used to detect the lane lines, and a 
 
 <img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> <img src = "Tracking_Trajectory/Zoomed.gif" align="center" width = "420" hight = "420">
 
-<img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> <img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> 
+<img src = "Lane_Keeping_Assist/Warped.gif" align="center" width = "420" hight = "420"> <img src = "Lane_Keeping_Assist/Detection.gif" align="center" width = "420" hight = "420"> 
 
 
 # 2. PID Controller Design for Tracking
